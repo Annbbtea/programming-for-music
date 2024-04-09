@@ -1,5 +1,10 @@
 SinOsc s[6];
 [0.3 , 0.2 , 0.1 , 0.1 , 0.1 , 0.1] @=> float gainArray[];
+for(0 => int i ; i < s.cap() ; i++)
+{
+    gainArray[i] => s[i].gain;
+    s[i] => dac;
+}
 
 while(1)
 {
@@ -14,8 +19,6 @@ while(1)
     for(0 => int i ; i < s.cap() ; i++)
     {
         freqArray[i] => s[i].freq;
-        gainArray[i] => s[i].gain;
-        s[i] => dac;
     }
 
     Math.random2(1,10) => int dice;
