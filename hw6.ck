@@ -24,7 +24,7 @@ while(1)
         freqArray[i] => s[i].freq;
     }
 
-    Math.random2(1,10) => int dice;
+    Math.random2( 1 , 10 ) => int dice;
     if(dice < 3)
     {
         0.5 :: second => now;
