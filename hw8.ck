@@ -1,5 +1,5 @@
 60 => int BPM; // Beats per minute
-8 => int noteValue; //off: 0
+2 => int subDivision; //off: 0
 //----------------------------------------------
 ModalBar one => dac.left;
 ModalBar two => dac.right;
@@ -27,7 +27,7 @@ fun void beat( dur beatDuration ){
     }
 }
 
-if( noteValue != 0 ) spork ~ sub_beat( beatDuration * 4 / noteValue );
+if( noteValue != 0 ) spork ~ sub_beat( beatDuration / subDivision );
 spork ~ beat( beatDuration );
 
 while(true) 1::second => now;
