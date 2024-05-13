@@ -27,7 +27,7 @@ fun void beat( dur beatDuration ){
     }
 }
 
-if( noteValue != 0 ) spork ~ sub_beat( beatDuration / noteValue );
+if( noteValue != 0 ) spork ~ sub_beat( beatDuration * 4 / noteValue );
 spork ~ beat( beatDuration );
 
 while(true) 1::second => now;
