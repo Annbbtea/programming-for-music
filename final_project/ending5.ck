@@ -22,9 +22,9 @@ fun void ending5_talk()
     me.dir() + "talk.wav" => string music;
     SndBuf myplayer => dac;
     music => myplayer.read;
+    0 => myplayer.pos; //Math.random2(0,169848576/2)
     for (0 => int i; i <150; i++)
     {
-        Math.random2(0,169848576/2) => myplayer.pos;
         Math.random2f(0.2,0.4) => myplayer.gain;
         Math.random2f(0.5,2) => myplayer.rate;
         0.1::second => now;
