@@ -79,5 +79,5 @@ fun void ending5_knife()
 
 spork ~ending5_knife();
 spork ~ending5_talk();
-spork ~ending5_congrats();//TBD
+//spork ~ending5_congrats();//TBD
 10 :: minute => now;
