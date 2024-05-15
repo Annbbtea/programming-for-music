@@ -76,7 +76,7 @@ fun void ending5_knife()
         myplayer1 => dac;
     }
 }
-spork ~ending5_congrats();
+
 spork ~ending5_knife();
 spork ~ending5_talk();
 spork ~ending5_congrats();//TBD
