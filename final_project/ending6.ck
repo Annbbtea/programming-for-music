@@ -1,4 +1,4 @@
-fun void ending6() //【選擇L：結局6．為義犧牲】
+fun void ending6_bgm() //【選擇L：結局6．為義犧牲】
 {
     //逃跑(緊張感)、白花染紅
     me.dir() + "mystery.wav" => string music2;
@@ -6,23 +6,44 @@ fun void ending6() //【選擇L：結局6．為義犧牲】
     music2 => my_player2.read;
     0 => my_player2.pos;
     1=> my_player2.rate;
-    for (0 => int i; i <20; i++)
+    for (0 => int i; i <24; i++)
     {
-        1-(1-(i*0.03)) =>my_player2.gain;
+        (i*0.03+0.1) =>my_player2.gain;
         1::second => now;
+        if (i == 19){
+            0 => i;
+            0 => my_player2.pos;
+        }
     }
-    my_player2 =< dac;
+}
+
+fun void ending6_knife() 
+{
     //處刑
     me.dir() + "knife_slash.wav" => string music;
     SndBuf myplayer =>dac;
     music => myplayer.read;
     0.7 => myplayer.gain;
-    //Math.random2(5000,20000)
     6445 => myplayer.pos;
-    //Math.random2f(0.5,1) 
     0.645549 => myplayer.rate;
     2 ::second => now;
 }
+spork ~ending6_bgm(); 
 
-spork ~ending6();
-10 :: minute => now;
+Hid kb; 
+HidMsg msg;
+0 => int device;
+if (kb.openKeyboard(device) == false)  me.exit();
+1 => int end;
+while(end){
+   kb => now;  
+    while(kb.recv(msg)){
+        if (msg.isButtonDown()){             
+            if (msg.key == 8){ //按下E就會發出揮刀聲，並結束所有程式
+                spork ~ending6_knife();
+                0.2::second=>now;
+                0 => end;
+            }
+        }
+    }
+}
