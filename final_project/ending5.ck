@@ -12,6 +12,9 @@ fun void ending5_congrats() //【選擇K：結局5．新王之誕】
         Math.random2f(0.2,0.4) => myplayer.gain;
         Math.random2f(1.5,2.5) => myplayer.rate;
         1::second => now;
+        if (i == 14){
+            0 => i;
+        }
     }
 }
 fun void ending5_talk() 
@@ -28,6 +31,9 @@ fun void ending5_talk()
         Math.random2f(0.2,0.4) => myplayer.gain;
         Math.random2f(0.5,2) => myplayer.rate;
         0.1::second => now;
+        if (i == 149){
+            0 => i;
+        }
     }
 }
 fun void ending5_knife() 
@@ -74,9 +80,12 @@ fun void ending5_knife()
         myplayer1 =< dac;
         Math.random2f(0,1) ::second => now;
         myplayer1 => dac;
+        if (i == 14){
+            0 => i;
+        }
     }
 }
-
+spork ~ending5_congrats();
 spork ~ending5_knife();
 spork ~ending5_talk();
 //spork ~ending5_congrats();//TBD
