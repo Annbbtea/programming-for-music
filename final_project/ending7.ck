@@ -36,6 +36,9 @@ fun void ending7_noise() //【選擇M：結局7．失敗者們】
                 (1 - (tempi/10000)) => vol;
             }
         }
+        if (i == 9999){
+            0=>i;
+        }
     }
 }
 fun void ending7_crow()
@@ -55,6 +58,9 @@ fun void ending7_crow()
         i => float tempi;
         (0.05 + (tempi/10))*0.3 => myplayer.gain;
         0.8::second => now;
+        if (i==9){
+            0=>i;
+        }
     }
 }
 fun void ending7_wave()
@@ -69,15 +75,19 @@ fun void ending7_wave()
     150000 => myplayer.pos;
     for (0 => int i; i<20; i++) 
     {
-        i => float tempi;
-        (0.05 + (tempi/20))*0.5 => myplayer.gain;
-        0.7::second => now;
-    }
-    for (0 => int i; i<5; i++) 
-    {
-        i => float tempi;
-        (0.95 - (tempi/5))*0.4 => myplayer.gain;
-        0.3::second => now;
+        if (i<10){
+            i => float tempi;
+            (0.25 + (tempi/20))*0.6 => myplayer.gain;
+            0.3::second => now;
+        }
+        else{
+            i => float tempi;
+            (1.25 - (tempi/20))*0.5 => myplayer.gain;
+            0.3::second => now;
+        }
+        if (i==19){
+            0=>i;
+        }
     }
 }
 
