@@ -154,4 +154,4 @@ spork ~ w1( 0.6::second );
 spork ~ w3( 0.6::second );
 spork ~ w4( 0.6::second );
 spork ~ w5( 0.6::second );
-1 :: minute => now;
+10 :: minute => now;
